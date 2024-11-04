@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>카페 어때</title>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container p-5 my-5 border" id="con" style="padding: 50px;background: white">
+    <img src="img/cafe_logo.png" style="width: 400px; height: 400px; background-color: white"/> <br>
+
+    <button onclick="location.href='/signup'" class="w-btn-neon2">회원가입</button>
+    <button onclick="location.href='/login'" class="w-btn-neon2">로그인</button>
+    <button onclick="location.href='/posts'" class="w-btn-neon2">게시판 목록</button>
+    <button onclick="location.href='/login'" class="w-btn-neon2">카페 목록</button>
+    <!-- TODO : 위 경로 카페 목록 URL 로 변경 해야 함 -->
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <!-- Bootstrap CSS Only -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+            crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container p-5 my-5 border" id="con" style="padding: 50px;background: white">
+    <h1>Login</h1>
+    <form th:action th:object="${memberLoginDto}" method="post">
+        <div class="mb-2 mt-3">
+            <label for="loginId">아이디</label><br>
+            <input type="text" id="loginId" th:field="*{loginId}" class="form-control" placeholder="아이디를 입력해주세요">
+            <div class="errormsg" th:errors="*{loginId}"></div>
+        </div>
+        <div class="mb-2">
+            <label for="password">비밀번호</label><br>
+            <input type="password" id="password" th:field="*{password}" class="form-control" placeholder="비밀번호를 입력해주세요">
+            <div class="errormsg" th:errors="*{password}"></div>
+        </div>
+
+<!--        ID : <input type="text" th:field="*{loginId}"/>-->
+<!--        PW : <input type="password" th:field="*{password}">-->
+        <input type="submit" value="로그인" class="btn btn-primary">
+    </form>
+</div>
+</body>
+</html>

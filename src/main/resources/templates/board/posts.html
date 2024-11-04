@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 목록</title>
+    <!-- Bootstrap CSS Only -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+        crossorigin="anonymous"/>
+    <link th:href="@{/css/signup.css}" rel="stylesheet"/>
+    <script th:src="@{/lib/jquery-3.6.0.js}"></script>
+    <link th:href="@{/css/table.css}" rel="stylesheet"/>
+</head>
+<body>
+<!-- header 내용 추가 필요시 추가할 것 -->
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a th:href="@{/}"><img th:src="@{/img/test_logo.png}" style="width: 100px; height: 100px;"/></a>
+</header>
+<div class="container p-3 my-5 border" id="con" style="padding: 50px;background: white">
+    <h1>게시글 목록</h1>
+    <a th:href="@{/posts/write}" class="btn btn-primary" style="margin-bottom: 10px">게시글 등록</a>
+    <table>
+    <thead>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회수</th>
+    </thead>
+    <tbody>
+        <tr th:each="board : ${boardList}">
+            <td>
+                <a th:href="@{'/posts/' + ${board.id}}">
+                    <span th:text="${board.title}"></span>
+                </a>
+            </td>
+            <td th:text="${board.member.name}"></td>
+            <td th:text="${board.createdDate.toLocalDate()}"></td>
+            <td>1</td>
+        </tr>
+    </tbody>
+</table>
+    <div style="text-align: center">
+<!--        <a th:if="${page != nowPage}" th:href="@{/board/list(page=${page-1}, titleAndContent=${condition.titleAndContent})}" th:text ="${page}"></a>-->
+        <!-- 위 부분 수정 필요 -->
+        <button onclick="location.href='/posts?page=1'">1</button>
+        <button onclick="location.href='/posts?page=2'">2</button>
+        <button onclick="location.href='/posts?page=3'">3</button>
+        <button onclick="location.href='/posts?page=4'">4</button>
+        <button onclick="location.href='/posts?page=5'">5</button>
+        <button onclick="location.href='/posts?page=6'">6</button>
+        <button onclick="location.href='/posts?page=7'">7</button>
+        <button onclick="location.href='/posts?page=8'">8</button>
+    </div>
+</div>
+</body>
+</html>
